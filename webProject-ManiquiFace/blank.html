@@ -11,37 +11,42 @@
     var galery = "#galery";
     var about = "#about";
     var contact = "#contact";
+    var home = "#home";
     
     function showBlock(name){
       	if(name.localeCompare("home") == 0){
+          $('#'+name).addClass('d-block');
         	$(about).removeClass('d-block');
           $(galery).removeClass('d-block');
 					$(contact).removeClass('d-block');
-
         }
       	else if(name.localeCompare("galery") == 0 ){
           $('#'+name).addClass('d-block');
 					$(about).removeClass('d-block');
         	$(contact).removeClass('d-block');
+          $(home).removeClass('d-block');
+
         }
         else if(name.localeCompare("about") == 0){
           $('#'+name).addClass('d-block');
 					$(galery).removeClass('d-block');
 					$(contact).removeClass('d-block');
+          $(home).removeClass('d-block');
+
 
         }
        	else if(name.localeCompare("contact") == 0){
           $('#'+name).addClass('d-block');
 					$(galery).removeClass('d-block');
 					$(about).removeClass('d-block');
-
+          $(home).removeClass('d-block');
         }
       }
   </script>
 </head>
 
 <body class="bg-dark">
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#">Jadim</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
@@ -63,7 +68,8 @@
       </div>
     </div>
   </nav>
-  <div class="py-5 text-left" style="background-image: url('maxresdefault.jpg');">
+  <!-- HOME -->
+  <div class="py-5 text-left d-none d-block" style="background-image: url('maxresdefault.jpg');" id="home">
     <div class="container py-5">
       <div class="row">
         <div class="col-md-12">

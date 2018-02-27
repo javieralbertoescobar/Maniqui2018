@@ -6099,7 +6099,8 @@ a.text-dark:hover, a.text-dark:focus {
   color: #fff; }
 
 html, body {
-  height: 100%; }
+  height: 100%;
+  padding-top: 33px; }
 
 .cover {
   min-height: 100%;
