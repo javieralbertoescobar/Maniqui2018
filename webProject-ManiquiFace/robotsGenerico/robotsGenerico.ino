@@ -1,17 +1,5 @@
 #include <Servo.h>
 
-
-// Declaramos la variable para controlar el servo
-Servo servoMotorHorizontal;
-Servo servoMotorVertical;
-Servo servoMotorLateral;
-
-int indexSecuencia = 0;
-int cantSecuencias = 1;
-int defaultPos = 90;
-
-int pulsador = 4;
-
 class Secuencia
   { private:
       int sup;
@@ -23,26 +11,62 @@ class Secuencia
       int checkInf;
       int cantSaltos;
       int salto;
+      int sentido;
   
 
       public:
-      Secuencia(int s, int i, int fr, int dFr, int act, int ckS, int ckI, int cantS){
+      Secuencia(int s, int i, int fr, int dFr, int act, int cantS){
        sup = s;
        inf = i;
        frecuencia = fr;
        difFrec = dFr;
        actual = act;
-       checkSup = ckS;
-       checkInf = ckI;
        cantSaltos = cantS;
        salto = (sup - inf)/cantSaltos;
+       sentido = 1;
        Serial.print(salto);
       }
       int siguientePosicion(){
+        if(sentido == 1){
+          if(actual <= sup ){
+            actual = actual  + (salto*sentido);
+          }
+          else{
+            sentido = sentido * -1;
+          }
+        }
+        else{
+          if (actual> inf){
+            actual = actual + (salto*sentido);
+          }
+          else{
+            sentido = sentido * -1;
+
+          }
+        }
+        delay(frecuencia);
+        return actual;
         
       }
 
 };
+
+
+// Declaramos la variable para controlar el servo
+Servo servoMotorHorizontal;
+Servo servoMotorVertical;
+Servo servoMotorLateral;
+
+int indexSecuencia = 0;
+int cantSecuencias = 1;
+int defaultPos = 90;
+
+int pulsador = 4;
+Secuencia s(130,50,50,50,defaultPos,40);;
+
+
+
+
 
 
 
@@ -73,7 +97,7 @@ return true;
 void setup() {
   Serial.begin(9600);
   iniciarServos();
-  Secuencia s(1,1,1,1,1,1,1,1);
+  
 
 }
 
@@ -84,6 +108,10 @@ if(digitalRead(pulsador) == HIGH){
     indexSecuencia = 0;
   }
 }
+Serial.print(s.siguientePosicion());
+//servoMotorHorizontal.write(s.siguientePosicion());
+
+
 }
 
 
