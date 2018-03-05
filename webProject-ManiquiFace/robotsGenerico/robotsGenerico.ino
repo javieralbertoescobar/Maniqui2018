@@ -12,39 +12,37 @@ class Secuencia
       int cantSaltos;
       int salto;
       int sentido;
+      int tiempoEspera;
   
 
       public:
-      Secuencia(int s, int i, int fr, int dFr, int act, int cantS){
+      Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI){
        sup = s;
        inf = i;
        frecuencia = fr;
-       difFrec = dFr;
+       frecuencia2 = fr2;
        actual = act;
        cantSaltos = cantS;
        salto = (sup - inf)/cantSaltos;
        sentido = 1;
+       tiempoEspera = frecuencia;
+       checkSup = ckS;
+       checkInf = ckI; 
        Serial.print(salto);
       }
       int siguientePosicion(){
-        if(sentido == 1){
-          if(actual <= sup ){
-            actual = actual  + (salto*sentido);
-          }
-          else{
+          if(actual > sup || actual < inf ){
             sentido = sentido * -1;
           }
-        }
-        else{
-          if (actual> inf){
-            actual = actual + (salto*sentido);
+          if(actual < checkInf || actual > checkSup){
+            tiempoEspera = frecuencia2; 
           }
           else{
-            sentido = sentido * -1;
-
+            tiempoEspera = frecuencia;
           }
-        }
-        delay(frecuencia);
+          actual = actual + (salto*sentido);
+        
+        delay(tiempoEspera);
         return actual;
         
       }
@@ -62,7 +60,8 @@ int cantSecuencias = 1;
 int defaultPos = 90;
 
 int pulsador = 4;
-Secuencia s(130,50,50,50,defaultPos,40);;
+Secuencia s(130,50,50,100,defaultPos,40,115,65);//Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI)
+Secuencia s2(90,110,50,100, defaultPos, 40, 100,90);
 
 
 
@@ -110,6 +109,8 @@ if(digitalRead(pulsador) == HIGH){
 }
 Serial.print(s.siguientePosicion());
 //servoMotorHorizontal.write(s.siguientePosicion());
+//servoMotorVertical.write(s2.siguientePosicion());
+
 
 
 }
