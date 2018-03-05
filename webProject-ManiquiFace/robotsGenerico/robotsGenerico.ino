@@ -5,7 +5,7 @@ class Secuencia
       int sup;
       int inf;
       int frecuencia;
-      int difFrec;
+      int frecuencia2;
       int actual;
       int checkSup;
       int checkInf;
