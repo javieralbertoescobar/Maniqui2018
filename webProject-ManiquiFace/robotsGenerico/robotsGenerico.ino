@@ -47,6 +47,10 @@ class Secuencia
         
       }
 
+      void setActual(int act){
+        actual = act;
+      }
+
 };
 
 
@@ -56,12 +60,20 @@ Servo servoMotorVertical;
 Servo servoMotorLateral;
 
 int indexSecuencia = 0;
-int cantSecuencias = 1;
+int cantSecuencias = 2;
 int defaultPos = 90;
 
 int pulsador = 4;
-Secuencia s(130,50,50,100,defaultPos,40,115,65);//Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI)
-Secuencia s2(90,110,50,100, defaultPos, 40, 100,90);
+//movimiento a
+Secuencia ah(130,50,25,50,defaultPos,80,115,65);//Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI)
+Secuencia av(110,90,25,50, defaultPos, 20, 110,90);
+
+//movimiento b
+Secuencia bh(130,50,25,50,defaultPos,40,115,65);//Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI)
+Secuencia bv(110,90,25,50, defaultPos, 10, 110,90);
+
+
+
 
 
 
@@ -107,9 +119,21 @@ if(digitalRead(pulsador) == HIGH){
     indexSecuencia = 0;
   }
 }
-Serial.print(s.siguientePosicion());
-//servoMotorHorizontal.write(s.siguientePosicion());
-//servoMotorVertical.write(s2.siguientePosicion());
+//Serial.print("x: ");
+//Serial.println(s.siguientePosicion());
+//Serial.print("y: ");
+//Serial.println(s2.siguientePosicion());
+if (indexSecuencia == 0){
+  servoMotorHorizontal.write(ah.siguientePosicion());
+  servoMotorVertical.write(av.siguientePosicion());
+  
+  
+}
+else{
+  servoMotorHorizontal.write(bh.siguientePosicion());
+  servoMotorVertical.write(bv.siguientePosicion());
+}
+
 
 
 
