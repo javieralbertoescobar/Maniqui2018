@@ -13,9 +13,14 @@ class Secuencia
       int salto;
       int sentido;
       int tiempoEspera;
+      
   
 
       public:
+
+      Secuencia(){
+        
+      }
       Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI){
        sup = s;
        inf = i;
@@ -51,6 +56,10 @@ class Secuencia
         actual = act;
       }
 
+      int getActual(){
+        return actual;
+      }
+
 };
 
 
@@ -64,13 +73,16 @@ int cantSecuencias = 2;
 int defaultPos = 90;
 
 int pulsador = 4;
+//movimiento activo
+Secuencia sh;
+Secuencia sv;
 //movimiento a
 Secuencia ah(130,50,25,50,defaultPos,80,115,65);//Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI)
 Secuencia av(110,90,25,50, defaultPos, 20, 110,90);
 
 //movimiento b
 Secuencia bh(130,50,25,50,defaultPos,40,115,65);//Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI)
-Secuencia bv(110,90,25,50, defaultPos, 10, 110,90);
+Secuencia bv(110,90,25,50, defaultPos, 5, 110,90);
 
 
 
@@ -100,6 +112,22 @@ void iniciarServos() {
   Serial.println("se esta apretando");
 }
 indexSecuencia = indexSecuencia + 1;
+if(indexSecuencia == cantSecuencias){
+    indexSecuencia = 0;
+  }
+if (indexSecuencia == 0){
+  Serial.println(bh.getActual());
+  ah.setActual(bh.getActual());
+  av.setActual(bv.getActual());
+  sh = ah;
+  sv = av;
+  }
+if (indexSecuencia == 1){
+  bh.setActual(ah.getActual());
+  bv.setActual(av.getActual());
+  sh = bh;
+  sv = bv;
+}
 return true;
 }
 
@@ -108,6 +136,8 @@ return true;
 void setup() {
   Serial.begin(9600);
   iniciarServos();
+  sh = ah;
+  sv = av;
   
 
 }
@@ -115,24 +145,16 @@ void setup() {
 void loop() {
 if(digitalRead(pulsador) == HIGH){
   apretarBoton(pulsador);
-  if(indexSecuencia == cantSecuencias){
-    indexSecuencia = 0;
-  }
+  
 }
 //Serial.print("x: ");
 //Serial.println(s.siguientePosicion());
 //Serial.print("y: ");
 //Serial.println(s2.siguientePosicion());
-if (indexSecuencia == 0){
-  servoMotorHorizontal.write(ah.siguientePosicion());
-  servoMotorVertical.write(av.siguientePosicion());
-  
-  
-}
-else{
-  servoMotorHorizontal.write(bh.siguientePosicion());
-  servoMotorVertical.write(bv.siguientePosicion());
-}
+
+servoMotorHorizontal.write(sh.siguientePosicion());
+servoMotorVertical.write(sv.siguientePosicion());
+
 
 
 
