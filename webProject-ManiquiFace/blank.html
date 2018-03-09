@@ -184,12 +184,12 @@
         <div class="col-md-6">
           <h1>Contact us</h1>
           <p>We would love to hear from you</p>
-          <form>
+          <form id="form1" action="enviarMail.php" method="post">
             <div class="form-group"> <label for="InputName">Your name</label>
-              <input type="text" class="form-control" id="InputName" placeholder="Your name"> </div>
+              <input type="text" class="form-control" id="InputName" placeholder="Your name" name="nombre"> </div>
             <div class="form-group"> <label for="InputEmail1">Email address</label>
-              <input type="email" class="form-control" id="InputEmail1" placeholder="Enter email"> </div>
-            <div class="form-group"> <label for="Textarea">Write here</label> <textarea class="form-control" id="Textarea" rows="3" placeholder="Type here"></textarea> </div>
+              <input type="email" class="form-control" id="InputEmail1" placeholder="Enter email" name="mail"> </div>
+            <div class="form-group"> <label for="Textarea">Write here</label> <textarea class="form-control" id="Textarea" rows="3" placeholder="Type here" name="mensaje"></textarea> </div>
             <button type="submit" class="btn btn-secondary">Enviar</button>
           </form>
         </div>
