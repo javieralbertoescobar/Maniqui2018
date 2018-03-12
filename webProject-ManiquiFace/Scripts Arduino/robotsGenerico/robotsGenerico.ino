@@ -38,6 +38,7 @@ class Secuencia
       int siguientePosicion(){
           if(actual > sup || actual < inf ){
             sentido = sentido * -1;
+            delay(6000);
           }
           if(actual < checkInf || actual > checkSup){
             tiempoEspera = frecuencia2; 
@@ -77,7 +78,7 @@ int pulsador = 4;
 Secuencia sh;
 Secuencia sv;
 //movimiento a
-Secuencia ah(130,50,25,50,defaultPos,80,115,65);//Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI)
+Secuencia ah(130,50,150,50,defaultPos,80,115,65);//Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI)
 Secuencia av(110,90,25,50, defaultPos, 20, 110,90);
 
 //movimiento b
@@ -153,7 +154,7 @@ if(digitalRead(pulsador) == HIGH){
 //Serial.println(s2.siguientePosicion());
 
 servoMotorHorizontal.write(sh.siguientePosicion());
-servoMotorVertical.write(sv.siguientePosicion());
+//servoMotorVertical.write(sv.siguientePosicion());
 
 
 
