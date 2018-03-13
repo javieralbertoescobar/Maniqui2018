@@ -78,7 +78,7 @@ int pulsador = 4;
 Secuencia sh;
 Secuencia sv;
 //movimiento a
-Secuencia ah(130,50,150,150,defaultPos,80,115,65);//Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI)
+Secuencia ah(130,50,150,150,defaultPos,20,115,65);//Secuencia(int s, int i, int fr, int fr2, int act, int cantS, int ckS, int ckI)
 Secuencia av(110,90,25,50, defaultPos, 20, 110,90);
 
 //movimiento b
