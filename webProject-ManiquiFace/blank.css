@@ -6123,20 +6123,6 @@ html, body {
   margin-left: 0;
   border-radius: 0.25rem; }
 
-.dropdown-submenu > a::after {
-  border-bottom: 0.3em solid transparent;
-  border-left-color: inherit;
-  border-left-style: solid;
-  border-left-width: 0.3em;
-  border-top: 0.3em solid transparent;
-  content: " ";
-  display: block;
-  float: right;
-  height: 0;
-  margin-right: -0.6em;
-  margin-top: -0.95em;
-  width: 0; }
-
 .bg-gradient {
   overflow: hidden;
   color: #fff;
