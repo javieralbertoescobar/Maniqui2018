@@ -6106,20 +6106,35 @@ html, body {
   display: flex;
   align-items: center; }
 
+/*desplegar menu pasando el mouse por encima */
 .dropdown:hover > .dropdown-menu {
   display: block;
   margin-top: 0; }
 
+/* Dropdown menu background color*/
+.navbar-nav > li > .dropdown-menu {
+  background-color: #303030; }
+
+/* Dropdown menu font color*/
+.navbar-nav > li > .dropdown-menu a {
+  color: #555555; }
+
+/*desplegar sub-menu pasando el mouse por encima */
 .dropdown-submenu:hover > .dropdown-menu {
   display: block; }
 
+/*cosas de posicion del submenu*/
 .dropdown-submenu {
   position: relative; }
+
+.dropdown-submenu .dropdown-menu {
+  background-color: #303030;
+  color: #202020; }
 
 .dropdown-submenu > .dropdown-menu {
   top: 0;
   left: 100%;
-  margin-top: -6px;
+  margin-top: 0px;
   margin-left: 0;
   border-radius: 0.25rem; }
 
