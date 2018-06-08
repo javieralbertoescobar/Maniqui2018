@@ -6113,11 +6113,11 @@ html, body {
 
 /* Dropdown menu background color*/
 .navbar-nav > li > .dropdown-menu {
-  background-color: #303030; }
+  background-color: #151515; }
 
 /* Dropdown menu font color*/
 .navbar-nav > li > .dropdown-menu a {
-  color: #555555; }
+  color: #838383; }
 
 /*desplegar sub-menu pasando el mouse por encima */
 .dropdown-submenu:hover > .dropdown-menu {
@@ -6128,7 +6128,7 @@ html, body {
   position: relative; }
 
 .dropdown-submenu .dropdown-menu {
-  background-color: #303030;
+  background-color: #151515;
   color: #202020; }
 
 .dropdown-submenu > .dropdown-menu {
