@@ -97,7 +97,24 @@ html,body {
   border-radius: 0.25rem;
 }
 
+.tituloSlideHome{
+ height: 50px;
+  top: 160px;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  z-index: 2;
+}
 
+.botonGaleriaSlideHome{
+ height: 50px;
+  width:200px;
+  top: 300px;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  z-index: 2;
+}
 
 
 

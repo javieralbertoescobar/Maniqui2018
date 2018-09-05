@@ -104,13 +104,35 @@
     </div>
   </nav>
   <!-- HOME -->
-  <div class="py-5 text-left" style="background-image: url('maxresdefault.jpg');" id="home">
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="display-3 mb-4 text-secondary">ManiquíesABC</h1>
-          <p class="lead mb-5 text-dark"> </p>
-          <a href="Galeria/Hombre.html" class="btn btn-lg btn-primary mx-1">Ver galeria</a>
+  <div id="home">
+    <!-- carrusel -->
+    <div id="myGallery" class="carousel slide" data-ride="carousel" data-interval="5000">
+      <ol class="carousel-indicators">
+        <li data-target="#myGallery" data-slide-to="0" class="active"></li>
+        <li data-target="#myGallery" data-slide-to="1"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image: url('maxresdefault.jpg');">
+          <div class="container py-5" alt="First slide">
+            <div class="row" style="height:500px">
+              <div class="col-md-12">
+                <h1 class="display-3 mb-4 text-secondary tituloSlideHome">ManiquíesABC</h1>
+                <p class="lead mb-5 text-dark"> </p>
+                <a href="Galeria/Hombre.html" class="btn btn-lg btn-primary mx-1 botonGaleriaSlideHome">Ver galeria</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('maxresdefault.jpg');">
+          <div class="container py-5" alt="Second slide">
+            <div class="row" style="height:500px">
+              <div class="col-md-12">
+                <h1 class="display-3 mb-4 text-secondary tituloSlideHome">ManiquíesABC</h1>
+                <p class="lead mb-5 text-dark"> </p>
+                <a href="Galeria/Hombre.html" class="btn btn-lg btn-primary mx-1 botonGaleriaSlideHome">Ver galeria</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
